@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar h1 {
+            color: blue;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .navbar li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: blue;
+            margin: 3px 0;
+        }
+    </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+
+        .background-image {
+            background-image: url('https://www.rgipt.ac.in/site/writereaddata/PageGallary/PG_202206021213448507.jpg');
+            background-size: contain;
+            background-repeat: no-repeat; 
+            height: 90vh;
+        }
+
+        .about-content {
+            padding: 20px;
+            text-align: justify;
+        }
+
+        .about-content h2 {
+            color: #50a8a0;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        .resources {
+            background-color: #50a8a0;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: 10px auto; /* Center the element horizontally */
+            width: 80%; /* Take 80% width of the .container */
+            max-width: none; /* Reset max-width */
+            border-radius: 10px;
+        }
+
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;  /* Align to the right */
+                width: 25%;  /* Set width for the menu */
+                max-width: 300px;  /* Maximum width */
+                background-color: #f0f0f0;
+                text-align: left;  /* Align text to the left */
+                padding: 5px;
+                z-index: 999;
+                flex-direction: column;  /* Display options vertically */
+                gap: 10px;  /* Space between options */
+                border-radius: 5px;  /* Rounded corners */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Shadow for menu */
+            }
+
+            .navbar.active ul {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+    </style>
+
+    <style>
+       .footer {
+            background-color: #f0f0f0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .footer h2, .footer h3 {
+            color: blue;
+            margin-top: 40px;
+        }
+
+        .footer ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer p {
+            color: gray;
+            margin: 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 80px 0;
+            background-color: #f0f0f0;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+    </style>
+
+
+    <title>RGIPT Campus Helpdesk</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1>RGIPT Campus Helpdesk</h1>
+        <ul id="navbarMenu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Signup</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <div class="background-image"></div>
+
+    <div class="container">
+        <div class="about-content">
+            <h2>Welcome to the RGIPT Campus Helpdesk!</h2>
+            <p>We are your dedicated support team, here to enhance your campus experience at Rajiv Gandhi Institute of Petroleum Technology (RGIPT). Our goal is to provide you with seamless access to essential services, ensuring your stay on campus is comfortable and safe.</p>
+
+            <h2>Gate Pass Application</h2>
+            <p>Need to step out of the campus for a while? No problem! Our gate pass application service allows you to easily apply for a pass, saving you time and hassle. Whether it's for a personal errand or an off-campus visit, we've got you covered.</p>
+
+            <h2>Hostel and Mess Facilities</h2>
+            <p>We also understand the importance of a conducive living environment. If you have any feedback or complaints regarding hostel or mess facilities, feel free to share them with us. Your input helps us address issues promptly and improve the overall living experience for everyone on campus.</p>
+
+            <h2>Emergency Medical Assistance</h2>
+            <p>Your health and well-being are our top priorities. In case of a medical emergency, our team is ready to assist you. Simply request immediate medical help, and our trained staff will be there to provide the necessary support and assistance.</p>
+
+            <h2>Commitment to Our Community</h2>
+            <p>At RGIPT Campus Helpdesk, we are committed to serving the needs of our students and staff. Whether it's providing essential services or addressing concerns, we are here to make your campus life as smooth and enjoyable as possible. Thank you for choosing us as your campus support partner.</p>
+        </div>
+    </div>
+
+    <div class="resources">
+        <h2>Get Access to Notes, PYQs, Books or Projects</h2>
+        <a href="https://sahpathi.co.in/">Link to Sahpathi</a>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div>
+                <h2>RGIPT Campus Helpdesk</h2>
+                <p>The Comprehensive Helpdesk for Campus Services at RGIPT.</p>
+            </div>
+            
+            <div>
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Created By</h3>
+                <ul>
+                    <li>Manish Kumar 22CS3037</li>
+                    <li>Bhagwat Karhale 22CS3033</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 RGIPT Campus Helpdesk. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <script>
+        
+        function toggleMenu() {
+            const navbarMenu = document.getElementById('navbarMenu');
+            if (navbarMenu.style.display === 'none' || navbarMenu.style.display === '') {
+                navbarMenu.style.display = 'flex';
+            } else {
+                navbarMenu.style.display = 'none';
+        }
+}
+
+    </script>
+</body>
+</html>

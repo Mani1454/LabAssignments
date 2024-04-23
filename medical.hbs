@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Emergency Services Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 80%;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 50px #0ef;
+            border-radius: 20px;
+            padding: 30px;
+            overflow: auto;
+            max-height: 80vh; /* Maximum height */
+        }
+
+        .wrapper:hover {
+            animation: animate 1s linear infinite;
+        }
+
+        @keyframes animate {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        select, input[type="text"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #080404;
+            background-color: transparent;
+            font-size: 16px;
+            color: #333;
+            border-radius: 0;
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        select:focus, input[type="text"]:focus, input[type="tel"]:focus, textarea:focus {
+            border-bottom-color: #5d7aa7;
+            outline: none;
+        }
+
+        textarea {
+            height: 50px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Medical Emergency Services Form</h1>
+        <form action="/medical" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="contact_number">Contact Number:</label>
+            <input type="tel" id="contact_number" name="contact_number" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="symptoms">Symptoms:</label>
+            <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
+
+            <label for="medical_history">Medical History (if any):</label>
+            <textarea id="medical_history" name="medical_history" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
