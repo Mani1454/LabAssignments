@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T2</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+  }
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="heading">Manish Kumar</h1>
+<button class="button" onclick="changeColorAndText()">Change Color and Text</button>
+
+<script>
+function changeColorAndText() {
+  var heading = document.getElementById('heading');
+  var button = document.querySelector('.button');
+
+  document.body.style.backgroundColor = 'lightgreen';
+  heading.style.color = 'red';
+  heading.style.fontSize = '48pt';
+  heading.textContent = 'Roll no. 22CS3037';
+
+  var newButton = document.createElement('button');
+  newButton.textContent = 'Click Me';
+  newButton.onclick = function() {
+    alert('You clicked the new button!');
+  };
+  heading.insertAdjacentElement('afterend', newButton);
+
+  button.textContent = 'Color and Text Changed from Name to Roll no.';
+}
+</script>
+
+</body>
+</html>

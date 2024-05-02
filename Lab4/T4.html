@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T4</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  main {
+    padding: 20px;
+  }
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .content1 {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .content2 {
+    background-color: #ffc107;
+    color: #333;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Main Page Header</h1>
+</header>
+
+<nav>
+  <a href="#">Resume</a>
+  <a href="#">Email</a>
+  <a href="#">LinkedIn</a>
+  <a href="#">Contact no.</a>
+</nav>
+
+<main>
+  <div class="content1">
+    <h2>Main Section Content 1</h2>
+    <p>This is the initial content of the main section.</p>
+  </div>
+  <button class="button" onclick="changeContent()">Change Content</button>
+</main>
+
+<footer>
+  <p>It is footer section of the web page.</p>
+</footer>
+
+<script>
+function changeContent() {
+  var mainSection = document.querySelector('main');
+  var newContent = document.createElement('div');
+  newContent.classList.add('content2');
+  newContent.innerHTML = '<h2>Main Section Content 2</h2><p>This is the new content of the main section with different styles.</p>';
+  mainSection.innerHTML = '';
+  mainSection.appendChild(newContent);
+}
+</script>
+
+</body>
+</html>

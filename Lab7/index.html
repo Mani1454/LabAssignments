@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10;
+            background-image: url("https://t3.ftcdn.net/jpg/02/24/64/56/360_F_224645618_dtpq1bEjnN67g3gampm39hg698AUC9tf.jpg");
+            background-size: cover;
+        }
+
+        #app {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #shopping-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #shopping-list li {
+            margin-bottom: 5px;
+            padding: 10px;
+            background-color: #d7ad13;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            color: red;
+        }
+
+        #shopping-list li input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Shopping List</h1>
+        <form id="add-item-form">
+            <input type="text" id="item-input" placeholder="Add new item">
+            <button type="submit">Add </button>
+        </form>
+        <ul id="shopping-list">
+            <!-- Shopping list items will be dynamically added here -->
+        </ul>
+    </div>
+    <script>
+        const addItemForm = document.getElementById('add-item-form');
+        const itemInput = document.getElementById('item-input');
+        const shoppingList = document.getElementById('shopping-list');
+        let items = [];
+    
+        // Function to retrieve items from localStorage
+        function fetchItemsFromStorage() {
+            const storedItems = localStorage.getItem('shoppingListItems');
+            if (storedItems) {
+                items = JSON.parse(storedItems);
+            }
+        }
+    
+        // Function to save items to localStorage
+        function saveItemsToStorage() {
+            localStorage.setItem('shoppingListItems', JSON.stringify(items));
+        }
+    
+        // Function to render shopping list
+        function renderShoppingList() {
+            shoppingList.innerHTML = '';
+            items.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <input type="checkbox" id="item-${index}">
+                    <label for="item-${index}">${item}</label>
+                `;
+                shoppingList.appendChild(listItem);
+            });
+            saveItemsToStorage(); // Save items to localStorage after rendering
+        }
+    
+        // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const newItem = itemInput.value.trim();
+            if (newItem !== '') {
+                items.push(newItem);
+                renderShoppingList();
+                itemInput.value = '';
+            }
+        }
+    
+        addItemForm.addEventListener('submit', handleFormSubmit);
+    
+        // Initial setup: Fetch items from storage and render the list
+        fetchItemsFromStorage();
+        renderShoppingList();
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T7</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  input[type="number"] {
+    width: 100px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  #tipAmount {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Tip Calculator</h1>
+  <input type="number" id="billAmount" placeholder="Bill Amount" min="0" step="0.01"><br>
+  <div id="tipPercentage">Tip Percentage: 15%</div>
+  <button onclick="increaseTipPercentage()">Increase Tip %</button>
+  <button onclick="decreaseTipPercentage()">Decrease Tip %</button><br>
+  <div id="numOfPeople">Number of People: 1</div>
+  <button onclick="increaseNumOfPeople()">Increase People</button>
+  <button onclick="decreaseNumOfPeople()">Decrease People</button><br>
+  <button onclick="calculateTip()">Calculate Tip</button>
+  <div id="tipAmount"></div>
+</div>
+<script>
+  let tipPercentage = 15;
+  let numOfPeople = 1;
+
+  function increaseTipPercentage() {
+    tipPercentage += 1;
+    document.getElementById('tipPercentage').innerText = `Tip Percentage: ${tipPercentage}%`;
+  }
+
+  function decreaseTipPercentage() {
+    if (tipPercentage > 0) {
+      tipPercentage -= 1;
+      document.getElementById('tipPercentage').innerText = `Tip Percentage: ${tipPercentage}%`;
+    }
+  }
+
+  function increaseNumOfPeople() {
+    numOfPeople += 1;
+    document.getElementById('numOfPeople').innerText = `Number of People: ${numOfPeople}`;
+  }
+
+  function decreaseNumOfPeople() {
+    if (numOfPeople > 1) {
+      numOfPeople -= 1;
+      document.getElementById('numOfPeople').innerText = `Number of People: ${numOfPeople}`;
+    }
+  }
+
+  function calculateTip() {
+    const billAmount = parseFloat(document.getElementById('billAmount').value);
+
+    if (isNaN(billAmount) || billAmount <= 0) {
+      alert('Please enter a valid bill amount.');
+      return;
+    }
+
+    const tipAmount = (billAmount * tipPercentage) / 100 / numOfPeople;
+    document.getElementById('tipAmount').innerText = `Tip Amount per person: ₹${tipAmount.toFixed(2)}`;
+  }
+</script>
+</body>
+</html>

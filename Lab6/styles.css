@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: brown;
+}
+
+#add-item-form {
+    margin-left: 20px;
+}
+
+#items-container {
+    margin-top: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.item img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover; /* Ensures image maintains aspect ratio and fills the specified dimensions */
+}

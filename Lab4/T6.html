@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T6</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-rows: auto auto; 
+        grid-template-columns: repeat(5, 1fr); 
+        gap: 10px; 
+        margin: 20px auto;
+        width: 80%;
+    }
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .browser-icon {
+        width: 100px; 
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+    <div class="grid-item">
+        <img src="chrome-icon.jpg" alt="Chrome" class="browser-icon">
+        <span>Chrome</span>
+    </div>
+    <div class="grid-item">
+        <img src="edge-icon.jpg" alt="Microsoft Edge" class="browser-icon">
+        <span>Microsoft Edge</span>
+    </div>
+    <div class="grid-item">
+        <img src="firefox-icon.jpg" alt="Firefox" class="browser-icon">
+        <span>Firefox</span>
+    </div>
+    <div class="grid-item">
+        <img src="safari-icon.jpg" alt="Safari" class="browser-icon">
+        <span>Safari</span>
+    </div>
+    <div class="grid-item">
+        <img src="opera-icon.jpg" alt="Opera" class="browser-icon">
+        <span>Opera</span>
+    </div>
+    <div class="grid-item">57.0</div>
+    <div class="grid-item">16.0</div>
+    <div class="grid-item">52.0</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">44</div>
+</div>
+
+</body>
+</html>
